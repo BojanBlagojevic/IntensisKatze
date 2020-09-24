@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using log4net;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,7 +12,7 @@ namespace IntensisKatzeService1.db
     public class Database
     {
         public static string sqlDataSource = "Data Source=INT-VIZ03\\SQLEXPRESS01; Initial Catalog=Intens;Trusted_Connection=true;";
-   
+    
 
 
         public DataTable GetData(string str)
@@ -37,9 +38,7 @@ namespace IntensisKatzeService1.db
             }
             catch (Exception ex)
             {
-         
-                throw ex;
-               
+                throw ex;              
             }
 
             return objresutl;

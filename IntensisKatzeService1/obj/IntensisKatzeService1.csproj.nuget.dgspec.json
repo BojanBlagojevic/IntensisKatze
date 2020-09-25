@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bojan.blagojevic\\source\\repos\\IntensisKatzeService1\\IntensisKatzeService1\\IntensisKatzeService1.csproj": {}
+    "C:\\Projekti\\IntensisKatze\\IntensisKatze\\IntensisKatzeService1\\IntensisKatzeService1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bojan.blagojevic\\source\\repos\\IntensisKatzeService1\\IntensisKatzeService1\\IntensisKatzeService1.csproj": {
+    "C:\\Projekti\\IntensisKatze\\IntensisKatze\\IntensisKatzeService1\\IntensisKatzeService1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bojan.blagojevic\\source\\repos\\IntensisKatzeService1\\IntensisKatzeService1\\IntensisKatzeService1.csproj",
+        "projectUniqueName": "C:\\Projekti\\IntensisKatze\\IntensisKatze\\IntensisKatzeService1\\IntensisKatzeService1.csproj",
         "projectName": "IntensisKatzeService1",
-        "projectPath": "C:\\Users\\bojan.blagojevic\\source\\repos\\IntensisKatzeService1\\IntensisKatzeService1\\IntensisKatzeService1.csproj",
+        "projectPath": "C:\\Projekti\\IntensisKatze\\IntensisKatze\\IntensisKatzeService1\\IntensisKatzeService1.csproj",
         "packagesPath": "C:\\Users\\bojan.blagojevic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bojan.blagojevic\\source\\repos\\IntensisKatzeService1\\IntensisKatzeService1\\obj\\",
+        "outputPath": "C:\\Projekti\\IntensisKatze\\IntensisKatze\\IntensisKatzeService1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

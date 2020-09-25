@@ -8,20 +8,37 @@ using MongoDB.Driver;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Data.SqlClient;
-
+using log4net;
+using System.Xml;
+using System.Reflection;
+using System.IO;
 
 namespace IntensisKatzeService1.Repository
 {
     public class KatzeRepository
     {
+
+        public KatzeRepository()
+        {
+            XmlDocument log4netConfig = new XmlDocument();
+            log4netConfig.Load(File.OpenRead("log4net.config"));
+            var repo = log4net.LogManager.CreateRepository(Assembly.GetEntryAssembly(),
+                       typeof(log4net.Repository.Hierarchy.Hierarchy));
+            log4net.Config.XmlConfigurator.Configure(repo, log4netConfig["log4net"]);
+        }
         public string GetMemoryIdByEmail(string email)
         {
+            var logger = LogManager.GetLogger(typeof(KatzeRepository));
+
+            logger.Info("Finding idNo from Katze!");
             Database db = new Database();
             string query = "select * from Zaposleni where email='" + email + "'";
             DataTable dt = db.GetData(query);
             var idZaposlenog = (from DataRow dr in dt.Rows
                                 select (string)dr["IDZaposlenog"]).FirstOrDefault();
-            string query2 = "select * from Zaposleni_IDMemorija where IDZaposlenog='" + idZaposlenog + "'";
+            string query2 = "SELECT  IDNo FROM [Zaposleni_IDMemorija]" +
+                                 "WHERE DatumDodeljivanja = (SELECT max(DatumDodeljivanja) from Zaposleni_IDMemorija WHERE IDZaposlenog ="
+                                 + idZaposlenog + ") and IDZaposlenog =" + idZaposlenog;
             DataTable dt2 = db.GetData(query2);
             var idNo = (from DataRow dr in dt2.Rows
                         select (string)dr["IDNo"]).FirstOrDefault();
@@ -33,7 +50,9 @@ namespace IntensisKatzeService1.Repository
          public string InsertRemoteWork(int minutes, string memory, string userName, DateTime? createdTime)
         {
 
+            var logger = LogManager.GetLogger(typeof(KatzeRepository));
 
+            logger.Info("Insert RemoteWork into katze");
             Database db = new Database();
             //var serialize = JsonConvert.SerializeObject(value);
             //JObject jobject = JObject.Parse(serialize);

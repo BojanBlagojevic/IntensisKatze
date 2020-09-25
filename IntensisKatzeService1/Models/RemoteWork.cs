@@ -25,7 +25,7 @@ namespace IntensisKatzeService1.Models
 
         public string _class { get; set; }
         [BsonIgnore]
-        public DateTime? CreatedAt => _id != null ? new ObjectId(_id).CreationTime.AddHours(2) : (DateTime?)null;
+        public DateTime? CreatedAt => _id != null ? new ObjectId(_id).CreationTime.ToLocalTime() : (DateTime?)null;
 
 
     }

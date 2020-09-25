@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5HfufD2is5CvK+EUZhnMOItR2RoLyYMfzlPxyeOKaKCAF6wnD6jyWto/Unos+RRuF1hHA1HWBU1ne8zcjLygkQ==",
+  "dgSpecHash": "om/VsZhn0g5xnPeYEguh8ApXPXG1Th/IxALHAf+JT70JOSw13VK0UyCTDX1npQ7PQ+lUCBj076GVfKk+vXdBmQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bojan.blagojevic\\source\\repos\\IntensisKatzeService1\\IntensisKatzeService1\\IntensisKatzeService1.csproj",
+  "projectFilePath": "C:\\Projekti\\IntensisKatze\\IntensisKatze\\IntensisKatzeService1\\IntensisKatzeService1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bojan.blagojevic\\.nuget\\packages\\dnsclient\\1.3.1\\dnsclient.1.3.1.nupkg.sha512",
     "C:\\Users\\bojan.blagojevic\\.nuget\\packages\\docker.dotnet\\3.125.4\\docker.dotnet.3.125.4.nupkg.sha512",

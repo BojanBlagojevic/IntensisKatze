@@ -1,6 +1,7 @@
 ﻿using IntensisKatzeService1.db;
 using IntensisKatzeService1.Models;
 using IntensisKatzeService1.Repository;
+using log4net;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -63,9 +64,12 @@ namespace IntensisKatzeService1.Services
 
         private void SyncKatze()
         {
+            var logger = LogManager.GetLogger(typeof(SyncRemoteWorkService));
 
+            logger.Info("Insert Employee!");
             List<RemoteWork> rwl = _intensis.GetRemoteWork();
-          
+      
+
 
             foreach (var rwork in rwl.Where(a => a.CreatedAt.Value.Date == DateTime.Now.Date))
             {
@@ -77,7 +81,6 @@ namespace IntensisKatzeService1.Services
 
                 if (tVremeRegistracije == null)
                 {
-                   
                     var msg = InsertIntoKatzeForEmployee(rwork);
                 }
             }

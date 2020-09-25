@@ -15,7 +15,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Serialization;
-using Microsoft.AspNetCore.Hosting;
 using static IntensisKatzeService1.Models.EmployeeDatabasesetting;
 using static IntensisKatzeService1.Models.RemoteWorkDatabasesetting;
 using IntensisKatzeService1.Repository;
@@ -44,6 +43,10 @@ namespace IntensisKatzeService1
 
             services.AddSingleton<IntensisRepository>();
 
+            services.Configure<IntensisRepository>(
+              Configuration.GetSection(nameof(IntensisRepository)));
+
+
             services.AddSingleton<KatzeRepository>();
 
 
@@ -67,8 +70,6 @@ namespace IntensisKatzeService1
             {
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
-
-
 
         }
 

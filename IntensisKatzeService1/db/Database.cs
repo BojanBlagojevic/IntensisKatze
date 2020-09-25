@@ -17,7 +17,9 @@ namespace IntensisKatzeService1.db
 
         public DataTable GetData(string str)
         {
-        
+            var logger = LogManager.GetLogger(typeof(Database));
+
+            logger.Info("Working with katze");
             DataTable objresutl = new DataTable();
             try
             {

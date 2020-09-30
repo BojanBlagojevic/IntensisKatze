@@ -33,10 +33,13 @@ namespace IntensisKatzeService1.Services
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            var logger = LogManager.GetLogger(typeof(SyncRemoteWorkService));
+
+
             while (!stoppingToken.IsCancellationRequested)
             {
-                _logger.LogDebug(" background task is doing background work.");
-
+                // _logger.LogDebug(" background task is doing background work.");
+                logger.Info(" background task is doing background work.");
 
                 var vreme = DateTime.Now;
                 _logger.LogInformation("----- Insert: {vreme}", vreme.ToString());
@@ -44,7 +47,8 @@ namespace IntensisKatzeService1.Services
                 { SyncKatze(); }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex.Message);
+                    logger.Info(ex.Message);
+                   // _logger.LogError(ex.Message);
                 }
 
                 await Task.Delay(6000, stoppingToken);
@@ -64,13 +68,9 @@ namespace IntensisKatzeService1.Services
 
         private void SyncKatze()
         {
-            var logger = LogManager.GetLogger(typeof(SyncRemoteWorkService));
 
-            logger.Info("Insert Employee!");
             List<RemoteWork> rwl = _intensis.GetRemoteWork();
       
-
-
             foreach (var rwork in rwl.Where(a => a.CreatedAt.Value.Date == DateTime.Now.Date))
             {
                 Database db = new Database();

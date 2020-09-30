@@ -10,14 +10,14 @@
         "projectUniqueName": "C:\\Projekti\\IntensisKatze\\IntensisKatze\\IntensisKatzeService1\\IntensisKatzeService1.csproj",
         "projectName": "IntensisKatzeService1",
         "projectPath": "C:\\Projekti\\IntensisKatze\\IntensisKatze\\IntensisKatzeService1\\IntensisKatzeService1.csproj",
-        "packagesPath": "C:\\Users\\bojan.blagojevic\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
         "outputPath": "C:\\Projekti\\IntensisKatze\\IntensisKatze\\IntensisKatzeService1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\bojan.blagojevic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,6 +68,10 @@
             "Microsoft.Extensions.Logging.Log4Net.AspNetCore": {
               "target": "Package",
               "version": "[3.1.3, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.10.9, )"
             },
             "MongoDB.Bson": {
               "target": "Package",

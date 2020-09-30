@@ -154,8 +154,6 @@ C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\bin\Debug\netcorea
 C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.csprojAssemblyReference.cache
 C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.AssemblyInfoInputs.cache
 C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.AssemblyInfo.cs
-C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.csproj.CoreCompileInputs.cache
-C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.MvcApplicationPartsAssemblyInfo.cache
 C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.RazorTargetAssemblyInfo.cache
 C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.csproj.CopyComplete
 C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\staticwebassets\IntensisKatzeService1.StaticWebAssets.Manifest.cache
@@ -163,3 +161,5 @@ C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcorea
 C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.dll
 C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.pdb
 C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.genruntimeconfig.cache
+C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.csproj.CoreCompileInputs.cache
+C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.MvcApplicationPartsAssemblyInfo.cache

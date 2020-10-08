@@ -1,12 +1,8 @@
 ﻿using IntensisKatzeService1.db;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using IntensisKatzeService1.Models.EntityModels;
 using MongoDB.Driver;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Data.SqlClient;
 using log4net;
 using System.Xml;

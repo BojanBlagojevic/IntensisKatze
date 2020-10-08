@@ -1,14 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using IntensisKatzeService1.Models;
 using IntensisKatzeService1.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -39,7 +31,7 @@ namespace IntensisKatzeService1
             services.AddSingleton<IEmployeeDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<EmployeeDatabaseSettings>>().Value);
 
-            services.AddSingleton<EmployeeService>();
+            //services.AddSingleton<EmployeeService>();
 
             services.AddSingleton<IntensisRepository>();
 
@@ -56,14 +48,10 @@ namespace IntensisKatzeService1
             services.AddSingleton<IRemoteWorkDatabasesettings>(sp =>
                sp.GetRequiredService<IOptions<RemoteWorkDatabasesettings>>().Value);
 
-            services.AddSingleton<RemoteWorkService>();
+            //services.AddSingleton<RemoteWorkService>();
 
             services.AddHostedService<SyncRemoteWorkService>();
 
-            var ConnectionString = Configuration.GetConnectionString("MbkDbConstr");
-
-            //Entity Framework  
-            //services.AddDbContext<KatzeContext>(options => options.UseSqlServer(ConnectionString));
 
             services.AddControllers()
             .AddNewtonsoftJson(options =>

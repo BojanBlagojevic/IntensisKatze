@@ -1,15 +1,11 @@
-﻿using IntensisKatzeService1.db;
-using IntensisKatzeService1.Models;
+﻿using IntensisKatzeService1.Models;
 using log4net;
 using MongoDB.Driver;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace IntensisKatzeService1.Repository

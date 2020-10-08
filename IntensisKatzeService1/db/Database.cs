@@ -14,8 +14,8 @@ namespace IntensisKatzeService1.db
 {
     public class Database
     {
-        public static string sqlDataSource = "Data Source=INT-VIZ03\\SQLEXPRESS01; Initial Catalog=Intens;Trusted_Connection=true;";
-
+        public static string sqlDataSource = "Data Source=katze\\cardware; Initial Catalog=Intens; User Id=sa;Password=CardWare021;Trusted_Connection=false;";
+        //public static string sqlDataSource = "Data Source=INT-VIZ03\\SQLEXPRESS01; Initial Catalog=Intens;Trusted_Connection=true;";
         public Database()
         {
             XmlDocument log4netConfig = new XmlDocument();
@@ -41,6 +41,8 @@ namespace IntensisKatzeService1.db
                     myCon.Open();
                     using (SqlCommand myCommand = new SqlCommand(str, myCon))
                     {
+                        logger.Info("Connection is open");
+                        logger.Info("ExecuteReader");
                         myReader = myCommand.ExecuteReader();
                         objresutl.Load(myReader);
 
@@ -56,6 +58,7 @@ namespace IntensisKatzeService1.db
               
             }
 
+            logger.Info(objresutl.Rows);
             return objresutl;
 
         }

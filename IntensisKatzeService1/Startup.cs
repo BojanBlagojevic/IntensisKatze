@@ -83,7 +83,7 @@ namespace IntensisKatzeService1
 
             loggerFactory.AddLog4Net();
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

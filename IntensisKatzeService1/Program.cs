@@ -24,6 +24,15 @@ namespace IntensisKatzeService1
                        typeof(log4net.Repository.Hierarchy.Hierarchy));
             log4net.Config.XmlConfigurator.Configure(repo, log4netConfig["log4net"]);
 
+             var host = new WebHostBuilder()
+            .UseKestrel()
+            .UseContentRoot(Directory.GetCurrentDirectory())
+            .UseStartup<Startup>()
+            .UseIISIntegration()
+            .Build();
+
+        host.Run();
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

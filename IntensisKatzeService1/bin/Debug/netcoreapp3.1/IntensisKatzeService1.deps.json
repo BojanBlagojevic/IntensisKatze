@@ -25,6 +25,7 @@
       "IntensisKatzeService1/1.0.0": {
         "dependencies": {
           "Docker.DotNet": "3.125.4",
+          "Docker.DotNet.X509": "3.125.2",
           "Microsoft.AspNetCore.Hosting": "2.2.7",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.8",
           "Microsoft.EntityFrameworkCore": "3.1.8",
@@ -339,6 +340,20 @@
         },
         "compile": {
           "lib/netstandard2.0/Docker.DotNet.dll": {}
+        }
+      },
+      "Docker.DotNet.X509/3.125.2": {
+        "dependencies": {
+          "Docker.DotNet": "3.125.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Docker.DotNet.X509.dll": {
+            "assemblyVersion": "3.125.2.0",
+            "fileVersion": "3.125.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Docker.DotNet.X509.dll": {}
         }
       },
       "log4net/2.0.11": {
@@ -3658,6 +3673,13 @@
       "sha512": "sha512-qStC9eSTewp/ySdN484fWhe9ZJZxuQtLRCMHnBH4GLbSS94A46n5OZp7nmRbe65iXjL4pIgfC7jiHhrEziCg9A==",
       "path": "docker.dotnet/3.125.4",
       "hashPath": "docker.dotnet.3.125.4.nupkg.sha512"
+    },
+    "Docker.DotNet.X509/3.125.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xkO14ZiPu+sk1qpNn/erxpcnXblO181LypBg2l4jbV5jb80Ubbr/PWTsI1AaaKrDCyeT2JbKO9qG3Up1yKxrmg==",
+      "path": "docker.dotnet.x509/3.125.2",
+      "hashPath": "docker.dotnet.x509.3.125.2.nupkg.sha512"
     },
     "log4net/2.0.11": {
       "type": "package",

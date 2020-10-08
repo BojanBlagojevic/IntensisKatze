@@ -51,7 +51,8 @@ namespace IntensisKatzeService1.Services
                    // _logger.LogError(ex.Message);
                 }
 
-                await Task.Delay(6000, stoppingToken);
+                await Task.Delay(TimeSpan.FromSeconds(20), stoppingToken);
+
             }
         }
 

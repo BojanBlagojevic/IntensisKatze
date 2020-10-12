@@ -15,25 +15,14 @@ namespace IntensisKatzeService1.Repository
         private readonly IMongoCollection<RemoteWork> _remoteWork;
         private readonly IMongoCollection<User> _user;
         private readonly IMongoCollection<Employee> _employee;
-
-
-
-        public IntensisRepository(RemoteWorkDatabasesetting.IRemoteWorkDatabasesettings settings)
-        {
-            var client = new MongoClient(settings.ConnectionString);
-            var database = client.GetDatabase(settings.DatabaseName);
-
-            XmlDocument log4netConfig = new XmlDocument();
-            log4netConfig.Load(File.OpenRead("log4net.config"));
-            var repo = log4net.LogManager.CreateRepository(Assembly.GetEntryAssembly(),
-                       typeof(log4net.Repository.Hierarchy.Hierarchy));
-            log4net.Config.XmlConfigurator.Configure(repo, log4netConfig["log4net"]);
-
-            _remoteWork = database.GetCollection<RemoteWork>(settings.RemoteWorkCollectionName);
-            _user = database.GetCollection<User>("user");
-            _employee = database.GetCollection<Employee>("employee");
+        public IntensisRepository(IIntenseISDatabaseSettings settings)
+        {     
+                var client = new MongoClient(settings.ConnectionString);
+                var database = client.GetDatabase(settings.DatabaseName);        
+                _remoteWork = database.GetCollection<RemoteWork>(settings.CollectionName);
+                _user = database.GetCollection<User>("user");
+                _employee = database.GetCollection<Employee>("employee"); 
         }
-
         public List<RemoteWork> GetRemoteWork()
         {
 
@@ -42,15 +31,9 @@ namespace IntensisKatzeService1.Repository
             //Create(zaposleni);
             return remoteWork;
         }
-
-
         public string GetEmployeeEmail(string employeeId)
         {
 
-
-            var logger = LogManager.GetLogger(typeof(IntensisRepository));
-
-            logger.Info("Find employee email!");
             List<Employee> employee;
             employee = _employee.Find(emp => true).ToList();
             var userId = (from us in employee
@@ -65,7 +48,5 @@ namespace IntensisKatzeService1.Repository
 
             return userEmail;
         }
-
-
     }
 }

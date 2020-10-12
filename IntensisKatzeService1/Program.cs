@@ -30,8 +30,7 @@ namespace IntensisKatzeService1
             .UseStartup<Startup>()
             .UseIISIntegration()
             .Build();
-
-        host.Run();
+             host.Run();
 
         }
 

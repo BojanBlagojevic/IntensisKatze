@@ -1,41 +1,41 @@
-﻿//using IntensisKatzeService1.Models;
-//using IntensisKatzeService1.Services;
-//using Microsoft.AspNetCore.Mvc;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Threading.Tasks;
+﻿using IntensisKatzeService1.Models;
+using IntensisKatzeService1.Services;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-//namespace IntensisKatzeService1.Controllers
-//{
-//    [ApiController]
-//    [Route("[controller]")]
-//    public class EmployeesController : ControllerBase
-//    {
-//        private readonly EmployeeService _employeeService;
+namespace IntensisKatzeService1.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class EmployeesController : ControllerBase
+    {
+        private readonly EmployeeService _employeeService;
 
-//        public EmployeesController(EmployeeService employeeService)
-        
-//        {
-//            _employeeService = employeeService;
-//        }
+        public EmployeesController(EmployeeService employeeService)
 
-//        [HttpGet]
-//        public IEnumerable<Employee> Get() =>
-//            _employeeService.Get();
+        {
+            _employeeService = employeeService;
+        }
 
-//        //[HttpGet("{id:length(24)}", Name = "GetEmployee")]
-//        //public ActionResult<Employee> Get(string id)
-//        //{
-//        //    var emp = _employeeService.Get(id);
+        [HttpGet]
+        public IEnumerable<Employee> Get() =>
+            _employeeService.Get();
 
-//        //    if (emp == null)
-//        //    {
-//        //        return NotFound();
-//        //    }
+        //[HttpGet("{id:length(24)}", Name = "GetEmployee")]
+        //public ActionResult<Employee> Get(string id)
+        //{
+        //    var emp = _employeeService.Get(id);
 
-//        //    return emp;
-//        //}
+        //    if (emp == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-//    }
-//}
+        //    return emp;
+        //}
+
+    }
+}

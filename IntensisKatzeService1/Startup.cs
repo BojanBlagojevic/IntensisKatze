@@ -7,9 +7,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Serialization;
-using static IntensisKatzeService1.Models.EmployeeDatabasesetting;
-using static IntensisKatzeService1.Models.RemoteWorkDatabasesetting;
 using IntensisKatzeService1.Repository;
+using IntensisKatzeService1.Models;
 
 namespace IntensisKatzeService1
 {
@@ -25,13 +24,6 @@ namespace IntensisKatzeService1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<EmployeeDatabaseSettings>(
-               Configuration.GetSection(nameof(EmployeeDatabaseSettings)));
-
-            services.AddSingleton<IEmployeeDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<EmployeeDatabaseSettings>>().Value);
-
-            //services.AddSingleton<EmployeeService>();
 
             services.AddSingleton<IntensisRepository>();
 
@@ -42,13 +34,13 @@ namespace IntensisKatzeService1
             services.AddSingleton<KatzeRepository>();
 
 
-            services.Configure<RemoteWorkDatabasesettings>(
-               Configuration.GetSection(nameof(RemoteWorkDatabasesettings)));
+            services.Configure<IntensisDatabaseSettings>(
+               Configuration.GetSection(nameof(IntensisDatabaseSettings)));
 
-            services.AddSingleton<IRemoteWorkDatabasesettings>(sp =>
-               sp.GetRequiredService<IOptions<RemoteWorkDatabasesettings>>().Value);
+            services.AddSingleton<IIntenseISDatabaseSettings>(sp =>
+               sp.GetRequiredService<IOptions<IntensisDatabaseSettings>>().Value);
 
-            //services.AddSingleton<RemoteWorkService>();
+            services.AddSingleton<RemoteWorkService>();
 
             services.AddHostedService<SyncRemoteWorkService>();
 
@@ -61,7 +53,7 @@ namespace IntensisKatzeService1
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+      
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
@@ -71,7 +63,6 @@ namespace IntensisKatzeService1
 
             loggerFactory.AddLog4Net();
 
-            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

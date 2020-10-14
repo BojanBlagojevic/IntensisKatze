@@ -1,6 +1,7 @@
 ﻿using IntensisKatzeService1.Models;
 using log4net;
 using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -16,12 +17,19 @@ namespace IntensisKatzeService1.Repository
         private readonly IMongoCollection<User> _user;
         private readonly IMongoCollection<Employee> _employee;
         public IntensisRepository(IIntenseISDatabaseSettings settings)
-        {     
+        {
+            if (settings.ConnectionString != null)
+            {
                 var client = new MongoClient(settings.ConnectionString);
-                var database = client.GetDatabase(settings.DatabaseName);        
+                var database = client.GetDatabase(settings.DatabaseName);
                 _remoteWork = database.GetCollection<RemoteWork>(settings.CollectionName);
                 _user = database.GetCollection<User>("user");
-                _employee = database.GetCollection<Employee>("employee"); 
+                _employee = database.GetCollection<Employee>("employee");
+            }
+            else {
+                throw new Exception($"Connection string is empty ");
+            }
+              
         }
         public List<RemoteWork> GetRemoteWork()
         {

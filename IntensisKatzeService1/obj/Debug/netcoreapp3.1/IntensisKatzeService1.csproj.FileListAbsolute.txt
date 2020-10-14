@@ -164,3 +164,4 @@ C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\bin\Debug\netcorea
 C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\bin\Debug\netcoreapp3.1\Docker.DotNet.X509.dll
 C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.csproj.CoreCompileInputs.cache
 C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.MvcApplicationPartsAssemblyInfo.cache
+C:\Projekti\IntensisKatze\IntensisKatze\IntensisKatzeService1\obj\Debug\netcoreapp3.1\IntensisKatzeService1.csprojAssemblyReference.cache

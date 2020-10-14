@@ -24,7 +24,7 @@ namespace IntensisKatzeService1.Services
         private readonly KatzeRepository _katze;
         private readonly ILogger<SyncRemoteWorkService> _logger;
         private readonly IConfiguration _configuration;
-          private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public SyncRemoteWorkService(IntensisRepository intensis, KatzeRepository katze, ILogger<SyncRemoteWorkService> logger, IConfiguration Configuration)
         {
 
@@ -56,7 +56,7 @@ namespace IntensisKatzeService1.Services
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex.Message);
+                    log.Info(ex.Message);
                 }
 
                 await Task.Delay(TimeSpan.FromMinutes(interval), stoppingToken);
@@ -83,7 +83,7 @@ namespace IntensisKatzeService1.Services
             catch (Exception ex)
             {
 
-                log.Error(ex.Message);
+                log.Info(ex.Message);
             }
           
         }
@@ -91,14 +91,21 @@ namespace IntensisKatzeService1.Services
 
         private void SyncKatze()
         {
-
-            List<RemoteWork> rwl = _intensis.GetRemoteWork();
-      
-            foreach (var rwork in rwl.Where(a => a.CreatedAt.Value.Date >= DateTime.Now.Date.AddDays(-2)))
+            try
             {
-                InsertIntoKatzeForEmployee(rwork);        
+                List<RemoteWork> rwl = _intensis.GetRemoteWork();
+
+                foreach (var rwork in rwl.Where(a => a.CreatedAt.Value.Date >= DateTime.Now.Date.AddDays(-2)))
+                {
+                    InsertIntoKatzeForEmployee(rwork);
+                }
+
             }
-      
+            catch (Exception ex)
+            {
+                log.Info(ex.Message);
+            }
+         
         }
 
     }

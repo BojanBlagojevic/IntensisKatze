@@ -6,8 +6,9 @@ using System.Data.SqlClient;
 using log4net;
 using System.Xml;
 using System.Reflection;
-using System.IO;
+using IntensisKatzeService1.Models;
 using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
 
 namespace IntensisKatzeService1.Repository
 {
@@ -109,6 +110,44 @@ namespace IntensisKatzeService1.Repository
             }
         }
 
+        /// <summary>
+        /// Poziv uskladištene procedure
+        /// </summary>
+        /// <param name="rf">Parametri za filter</param>
+        /// <returns>Lista zaposlenih</returns>
+        public List<EmployeeReport> GetEmployeeReport(ReportFilter rf)
+        {
+            List<EmployeeReport> list = new List<EmployeeReport>();
 
+            string storedProcedure = "p_CW_ObracunSatniceZaPeriod";
+
+            using (SqlConnection conn = new SqlConnection(_configuration["ConnectionString"]))
+            {
+                SqlCommand cmd = new SqlCommand(storedProcedure, conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conn.Open();
+                cmd.Parameters.AddWithValue("VremeOd", rf.StartDate);
+                cmd.Parameters.AddWithValue("VremeDo", rf.EndDate);
+                cmd.Parameters.AddWithValue("Operator", rf.Operation);
+                cmd.Parameters.AddWithValue("Sati", rf.Hours);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    list = reader.Cast<IDataRecord>()
+                        .Select(x => new EmployeeReport(
+                                        x.GetInt32(0),
+                                        x.GetString(1),
+                                        x.GetDateTime(2),
+                                        x.GetString(3),
+                                        x.GetInt32(4),
+                                        x.GetString(5)
+                                    )
+                                )
+                        .ToList();
+                }
+            }
+
+            return list;
+        }
     }
 }
